@@ -6,9 +6,12 @@ python:
 install:
   - pip install pipenv
   - pipenv sync --dev
+  - pipenv run python -V
+  - pipenv run which python
 
 before_script:
   - cp contrib/env-sample .env
 
 script:
+  - pipenv run flake8 .
   - pipenv run pytest .
