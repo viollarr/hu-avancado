@@ -1,9 +1,14 @@
 language: python
+
 python:
   - 3.6
-install:
-  - pip pipenv
-  - pipenv install --dev
-script:
-  - pytest .
 
+install:
+  - pip install pipenv
+  - pipenv install --dev
+
+before_script:
+  - cp contrib/env-sample .env
+
+script:
+  - pipenv run pytest .
