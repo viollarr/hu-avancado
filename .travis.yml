@@ -5,7 +5,7 @@ python:
 
 install:
   - pip install pipenv
-  - pipenv install --dev
+  - pipenv sync --dev
 
 before_script:
   - cp contrib/env-sample .env
