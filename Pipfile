@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 python-decouple = "*"
 flask = "*"
-"flake8" = "*"
 
 [dev-packages]
 pytest = "*"

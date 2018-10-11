@@ -6,6 +6,7 @@ python:
 install:
   - pip install pipenv
   - pipenv sync --dev
+  - pipenv install --skip-lock codecov
   - pipenv run python -V
   - pipenv run which python
 
@@ -14,4 +15,7 @@ before_script:
 
 script:
   - pipenv run flake8 .
-  - pipenv run pytest .
+  - pipenv run pytest . --cov
+
+after_success:
+   - pipenv run codecov
