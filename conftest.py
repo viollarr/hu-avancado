@@ -3,11 +3,12 @@ import pytest
 from app_factory import create_app
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture
 def app():
     app_obj = create_app()
     app_obj.testing = True
-    return app_obj
+    with app_obj.test_request_context() as _:
+        yield app_obj
 
 
 @pytest.fixture
