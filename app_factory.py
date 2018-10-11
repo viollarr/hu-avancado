@@ -10,5 +10,4 @@ def create_app(app_settings=None):
     app = Flask(__name__)
     app.config.from_object(app_settings)
     bp.init_app(app)
-    bp.init_app(app, url_prefix='/user')
     return app
