@@ -6,11 +6,12 @@ name = "pypi"
 [packages]
 python-decouple = "*"
 flask = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 pytest = "*"
-pytest-cov = "*"
 "flake8" = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.7"
