@@ -23,6 +23,7 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+.vscode/
 MANIFEST
 
 # PyInstaller
@@ -40,6 +41,7 @@ htmlcov/
 .tox/
 .coverage
 .coverage.*
+.coveragerc
 .cache
 nosetests.xml
 coverage.xml
@@ -102,3 +104,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# VsCode
+.vscode/*
