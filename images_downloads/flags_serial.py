@@ -11,11 +11,12 @@ flags_dir = path.dirname(__file__)
 flags_dir = path.join(flags_dir, 'images')
 
 
-def get_url(uf):
-    return '{0}/{1}/{1}.gif'.format('http://localhost:8001/flags', uf)
+def get_url(uf, port):
+    url = 'http://localhost:{}/flags'.format(port)
+    return '{0}/{1}/{1}.gif'.format(url, uf)
 
-def download_flag(country):
-    url = get_url(country)
+def download_flag(country, port):
+    url = get_url(country, port)
     resp = requests.get(url)
     if resp.status_code != 200:
         raise FlagNotFound()
@@ -34,10 +35,10 @@ def generate_countries():
         yield a + b
 
 
-def download_all_flags():
+def download_all_flags(port):
     for country in generate_countries():
         try:
-            image = download_flag(country)
+            image = download_flag(country, port)
         except FlagNotFound:
             yield f'Flag not found: {country}'
         else:
@@ -48,6 +49,6 @@ def download_all_flags():
 if __name__ == '__main__':
 
     elapsed = time()
-    for result in download_all_flags():
+    for result in download_all_flags(8001):
         print(result)
     print(f'Total time: {time()-elapsed}s')
