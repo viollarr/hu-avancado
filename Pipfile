@@ -8,12 +8,15 @@ python-decouple = "*"
 flask = "*"
 flask-sqlalchemy = "*"
 "psycopg2" = "*"
+ipdb = "*"
+requests = {version = "*", editable = true}
 
 [dev-packages]
 pytest = "*"
 "flake8" = "*"
 pytest-cov = "*"
 pytest-flask-sqlalchemy = "*"
+ipdb = "*"
 
 [requires]
 python_version = "3.7"
